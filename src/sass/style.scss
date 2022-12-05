@@ -1,0 +1,178 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+html {
+	font-size: 62.5%;
+}
+
+body {
+	// width: 100vw;
+	font-family: 'Roboto', sans-serif;
+}
+
+.navbar {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	position: relative;
+	height: 10vh;
+	color: rgb(84, 83, 83);
+
+	.logo {
+		margin-left: 1em;
+		font-size: 2rem;
+	}
+
+	.nav-desktop {
+		display: none;
+	}
+
+	.nav-mobile {
+		display: none;
+		position: absolute;
+		right: -150px;
+	}
+
+	.hamburger {
+		position: relative;
+		margin-right: 1em;
+		width: 20px;
+		height: 20px;
+		border: 1px solid rgb(84, 83, 83);
+		border-radius: 50%;
+		cursor: pointer;
+
+		&::after {
+			content: '';
+			width: 60%;
+			height: 1px;
+			position: absolute;
+			top: 7px;
+			right: 4px;
+			background-color: rgb(84, 83, 83);
+		}
+
+		&::before {
+			content: '';
+			width: 40%;
+			height: 1px;
+			position: absolute;
+			top: 11px;
+			right: 4px;
+			background-color: rgb(84, 83, 83);
+		}
+	}
+}
+
+.header {
+	width: 100vw;
+	height: 90vh;
+	position: relative;
+
+	.background-img {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		width: 100%;
+		height: 100%;
+		padding: 3em;
+		background-image: url('/src/img/jungle-mobile.jpg');
+		background-position: center;
+		background-size: cover;
+		color: #fff;
+
+		.background-shadow {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			background-color: rgba(0, 7, 1, 0.5);
+		}
+
+		.logo-title,
+		.header-title {
+			z-index: 1;
+			margin: 0.5em 0;
+		}
+
+		.logo-title {
+			font-size: 2rem;
+			font-weight: 300;
+		}
+
+		.header-title {
+			font-size: 1.5rem;
+		}
+	}
+}
+
+.about-us {
+	padding: 3em;
+	color: rgb(84, 83, 83);
+
+	h2.section-title {
+		margin-bottom: 1em;
+		font-size: 3rem;
+		font-weight: 300;
+		text-align: center;
+		text-transform: uppercase;
+	}
+
+	.about-us__box {
+		.picture {
+			width: 100%;
+			height: 200px;
+			background-image: url('/src/img/water.jpg');
+			background-position: center;
+			background-size: cover;
+		}
+
+		.info {
+			margin-top: 2em;
+
+			h3 {
+				margin-bottom: 0.5em;
+				font-size: 2rem;
+				color: #000;
+			}
+
+			.info-text {
+				font-size: 1.4rem;
+				text-align: justify;
+			}
+		}
+	}
+}
+
+.img-child {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	position: relative;
+	width: 100%;
+	height: 200px;
+	background-image: url('/src/img/girl.jpg');
+	background-position: center;
+	background-size: cover;
+
+	.background-shadow {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background-color: rgba(0, 7, 1, 0.5);
+	}
+
+	.text {
+		padding: 1em 2em;
+		font-size: 2rem;
+		border: 2px solid #fff;
+		color: #fff;
+		z-index: 1;
+	}
+}
