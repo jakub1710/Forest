@@ -9,9 +9,29 @@ html {
 }
 
 body {
-	// width: 100vw;
 	font-family: 'Roboto', sans-serif;
 }
+
+.section {
+	padding: 3em;
+}
+
+.container {
+	width: 100%;
+	max-width: 1200px;
+}
+
+h2.section-title {
+	margin-bottom: 1em;
+	font-size: 3rem;
+	font-weight: 300;
+	text-align: center;
+	text-transform: uppercase;
+	color: rgb(84, 83, 83);
+}
+
+
+//--- NAWIGACJA ---
 
 .navbar {
 	display: flex;
@@ -67,6 +87,8 @@ body {
 	}
 }
 
+//--- HEADER ---
+
 .header {
 	width: 100vw;
 	height: 90vh;
@@ -110,18 +132,9 @@ body {
 	}
 }
 
+// --- O NAS ---
+
 .about-us {
-	padding: 3em;
-	color: rgb(84, 83, 83);
-
-	h2.section-title {
-		margin-bottom: 1em;
-		font-size: 3rem;
-		font-weight: 300;
-		text-align: center;
-		text-transform: uppercase;
-	}
-
 	.about-us__box {
 		.picture {
 			width: 100%;
@@ -143,6 +156,7 @@ body {
 			.info-text {
 				font-size: 1.4rem;
 				text-align: justify;
+				color: rgb(84, 83, 83);
 			}
 		}
 	}
@@ -174,5 +188,108 @@ body {
 		border: 2px solid #fff;
 		color: #fff;
 		z-index: 1;
+	}
+}
+
+// --- OFERTA ---
+
+.offer {
+	display: flex;
+	align-items: center;
+
+	.offer-info {
+		// margin-bottom: 1.5em;
+		font-size: 1.4rem;
+		text-align: center;
+	}
+
+	.offer__boxes {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		margin: 1.5em 0;
+
+		.offer-box {
+			margin-bottom: 2em;
+			padding: 2em;
+			width: 200px;
+			box-shadow: 0 2px 4px 0 rgb(134, 133, 133);
+			border-radius: 5px;
+
+			h3 {
+				margin-bottom: 0.5em;
+				font-size: 2rem;
+				font-weight: 400;
+				text-align: center;
+			}
+
+			.price {
+				font-size: 3rem;
+				font-weight: 700;
+				text-align: center;
+			}
+
+			ul.options {
+				margin: 1.5em 1em;
+				list-style: none;
+				font-size: 1.2rem;
+
+				li {
+					margin-bottom: 0.4em;
+
+					.fa-check {
+						color: rgb(9, 118, 31);
+					}
+				}
+
+				.inaccessible {
+					color: rgb(134, 132, 132);
+				}
+			}
+
+			.choose-btn {
+				display: flex;
+				justify-content: center;
+
+				button {
+					padding: 0.5em 2.5em;
+					box-shadow: 0 2px 4px 0 rgb(134, 133, 133);
+					border-radius: 10px;
+					border: none;
+					color: rgb(53, 52, 52);
+				}
+
+				button:hover {
+					background-color: rgb(118, 238, 154);
+				}
+			}
+		}
+	}
+}
+
+.contact {
+	padding: 3em;
+
+	.contact-boxes {
+		display: flex;
+		justify-content: space-between;
+
+		.contact-box {
+
+			h3 {
+				font-size: 1.4rem;
+			}
+
+			ul {
+				margin: 1em 0;
+				list-style: none;
+				font-size: 1.2rem;
+				font-weight: 300;
+	
+				li {
+					margin-bottom: 0.4em;
+				}
+			}
+		}
 	}
 }
