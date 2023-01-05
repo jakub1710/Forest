@@ -6,6 +6,7 @@
 
 html {
 	font-size: 62.5%;
+	scroll-behavior: smooth;
 }
 
 body {
@@ -30,76 +31,146 @@ h2.section-title {
 	color: rgb(84, 83, 83);
 }
 
-
-//--- NAWIGACJA ---
-
-.navbar {
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-	position: relative;
-	height: 10vh;
-	color: rgb(84, 83, 83);
-
-	.logo {
-		margin-left: 1em;
-		font-size: 2rem;
-	}
-
-	.nav-desktop {
-		display: none;
-	}
-
-	.nav-mobile {
-		display: none;
-		position: absolute;
-		right: -150px;
-	}
-
-	.hamburger {
-		position: relative;
-		margin-right: 1em;
-		width: 20px;
-		height: 20px;
-		border: 1px solid rgb(84, 83, 83);
-		border-radius: 50%;
-		cursor: pointer;
-
-		&::after {
-			content: '';
-			width: 60%;
-			height: 1px;
-			position: absolute;
-			top: 7px;
-			right: 4px;
-			background-color: rgb(84, 83, 83);
-		}
-
-		&::before {
-			content: '';
-			width: 40%;
-			height: 1px;
-			position: absolute;
-			top: 11px;
-			right: 4px;
-			background-color: rgb(84, 83, 83);
-		}
-	}
+a {
+	color: #000;
+	font-weight: 700;
+	text-decoration: none;
 }
 
 //--- HEADER ---
 
 .header {
 	width: 100vw;
-	height: 90vh;
 	position: relative;
+
+	//--- NAWIGACJA ---
+
+	.navbar {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		position: relative;
+		height: 10vh;
+		color: rgb(84, 83, 83);
+
+		a {
+			color: rgb(84, 83, 83);
+			text-decoration: none;
+		}
+
+		.logo {
+			margin-left: 1em;
+			font-size: 2rem;
+			font-weight: 300;
+			z-index: 3;
+		}
+
+		.nav-desktop {
+			display: none;
+		}
+
+		.nav-mobile {
+			display: none;
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
+			width: 100%;
+			height: 100vh;
+			position: absolute;
+			top: 0;
+			bottom: 0;
+			right: 0;
+			background-color: rgb(124, 117, 117);
+			z-index: 2;
+
+
+			.nav-items {
+				display: flex;
+				flex-direction: column;
+				justify-content: center;
+				align-items: center;
+				width: 100%;
+				font-size: 3.2rem;
+
+				.nav-item {
+					margin-bottom: 1em;
+					color: #fff;
+					font-weight: 300;
+					font-size: 3.2rem;
+					animation: 0.3s showItem 1.2s forwards;
+					opacity: 0;
+
+					@keyframes showItem {
+						100% {
+							opacity: 1;
+						}
+					}
+				}
+			}
+		}
+		.active {
+			display: flex;
+			animation: 1s openNav cubic-bezier(0.72, 0.71, 0.61, 0.99) ;
+
+			@keyframes openNav {
+				0% {
+					transform: translateY(-100%);
+				}
+
+				100% {
+					transform: translateY(0%);
+				}
+			}
+		}
+
+		.hamburger {
+			position: relative;
+			margin-right: 1em;
+			width: 25px;
+			height: 25px;
+			border: 1px solid rgb(84, 83, 83);
+			border-radius: 50%;
+			cursor: pointer;
+			z-index: 3;
+			
+			&::after {
+				content: '';
+				width: 60%;
+				height: 1px;
+				position: absolute;
+				top: 8px;
+				right: 4px;
+				background-color: rgb(84, 83, 83);
+				transition: 0.3s all;
+			}
+			
+			&::before {
+				content: '';
+				width: 45%;
+				height: 1px;
+				position: absolute;
+				top: 13px;
+				right: 4px;
+				background-color: rgb(84, 83, 83);
+				transition: 0.3s all;
+			}
+		}
+		.hamburger.active::after {
+			transform: rotate(45deg) translateX(4px);
+			width: 80%;
+		}
+		.hamburger.active::before {
+			transform: rotate(-45deg) translateX(3px);
+			width: 80%;
+		}
+	}
 
 	.background-img {
 		display: flex;
 		flex-direction: column;
 		justify-content: center;
 		width: 100%;
-		height: 100%;
+		height: 90vh;
 		padding: 3em;
 		background-image: url('/src/img/jungle-mobile.jpg');
 		background-position: center;
@@ -108,10 +179,10 @@ h2.section-title {
 
 		.background-shadow {
 			position: absolute;
-			top: 0;
+			top: 10%;
 			left: 0;
 			width: 100%;
-			height: 100%;
+			height: 90%;
 			background-color: rgba(0, 7, 1, 0.5);
 		}
 
@@ -198,7 +269,6 @@ h2.section-title {
 	align-items: center;
 
 	.offer-info {
-		// margin-bottom: 1.5em;
 		font-size: 1.4rem;
 		text-align: center;
 	}
@@ -219,6 +289,13 @@ h2.section-title {
 			h3 {
 				margin-bottom: 0.5em;
 				font-size: 2rem;
+				font-weight: 400;
+				text-align: center;
+			}
+
+			h4 {
+				margin-bottom: 0.5em;
+				font-size: 1.4rem;
 				font-weight: 400;
 				text-align: center;
 			}
@@ -257,6 +334,7 @@ h2.section-title {
 					border-radius: 10px;
 					border: none;
 					color: rgb(53, 52, 52);
+					transition: background-color 0.3s;
 				}
 
 				button:hover {
@@ -267,15 +345,14 @@ h2.section-title {
 	}
 }
 
-.contact {
-	padding: 3em;
+// CONTACT
 
+.contact {
 	.contact-boxes {
 		display: flex;
 		justify-content: space-between;
 
 		.contact-box {
-
 			h3 {
 				font-size: 1.4rem;
 			}
@@ -285,11 +362,40 @@ h2.section-title {
 				list-style: none;
 				font-size: 1.2rem;
 				font-weight: 300;
-	
+
 				li {
 					margin-bottom: 0.4em;
 				}
 			}
 		}
 	}
+
+	.contact-info {
+		margin-top: 1em;
+		font-size: 1.4rem;
+		text-align: center;
+	}
+
+	.map {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		margin-top: 2em;
+
+		.place {
+			width: 300px;
+			height: 300px;
+			border: 1px solid black;
+			overflow: hidden;
+		}
+	}
+}
+
+.footer {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 2em;
+	font-size: 1.2rem;
+	font-weight: 300;
 }
